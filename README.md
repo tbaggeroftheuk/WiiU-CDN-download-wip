@@ -3,11 +3,15 @@
 
 # DISCLAMER
 
-First things first aka you nintendo if you come snooping
-This tool does not provide tickets
-Users will have to provide tickets once I have that working
-Does not bypass athentication on the NUS 
-AND to be safe I will not be giving title ids you will have to find your own title ids for the game and or software you want
+This tool does not provide decryption keys, tickets, or title IDs.
+
+Users must supply their own legally obtained tickets if required.
+
+This project does not bypass authentication on Nintendo's NUS servers, nor does it promote or enable piracy.
+
+This tool is intended for educational and archival purposes only.
+
+If you are a rights holder and have concerns, please contact me or file a takedown through the appropriate GitHub process.
 
 # Now thats out the way
 
