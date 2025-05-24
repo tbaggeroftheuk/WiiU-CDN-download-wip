@@ -52,6 +52,20 @@ Flags
 
 `--nohash` disables hash check 
 
+`--h3 downloads` the h3 hash checking files idk why I added this or if it works 
+
+`--no-organize` Dont move/copy files into subfolder or copy ticket if the ticket exits 
+
+# about title keys (.tik)
+
+IF you have any tickets (.tik) put them in /ticket also please make sure there named
+
+with a title ID all that does if you download eg mario kart 8 and you have a mario kart 8 ticket
+
+it will copy the content into a a folder /downloads/"title id" this wont work if --no-organize is on
+
+this will work with any .tik you can used backed up tik files or ones off the internet I can not direct them to you though
+
 # What it does
 
 Connects to nintendos NUS server
