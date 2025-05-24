@@ -1,4 +1,4 @@
-# 3ds-NUS-download-wip
+# WiiU-CDN-download-wip
 
 
 # DISCLAMER
@@ -14,7 +14,8 @@ This tool is intended for educational and archival purposes only.
 If you are a rights holder and have concerns, please contact me or file a takedown through the appropriate GitHub process.
 
 # Now thats out the way
-
+Also you will see in previous versions of nus.py that this was orginally 3ds
+And then I found out the 3ds cdn was bassicly unplugged so this is now Wii U 
 This is my work in progress nus downloader
 some stuff doesnt work downloading eg the system settings app from my inital test did not work
 game names also doesnt work
@@ -49,6 +50,7 @@ Flags
 
 `--json` saves a .json report of downloaded files idk if this works
 
+`--nohash` disables hash check 
 
 # What it does
 
