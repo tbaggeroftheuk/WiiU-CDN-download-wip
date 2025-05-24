@@ -12,7 +12,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import xml.etree.ElementTree as ET
 from typing import List, Dict, Any, Optional
 
-BASE_NUS_URL = "http://ccs.cdn.c.shop.nintendowifi.net/ccs/download/"
+BASE_NUS_URL = "http://ccs.cdn.wup.shop.nintendo.net/ccs/download/"
 
 def print_banner():
     print(r"""
@@ -21,7 +21,7 @@ def print_banner():
  | | | |  \| | | | |  \___ \| | | / __| __/ _ \ '_ ` _ \ 
  | |_| | |\  | |_| |   ___) | |_| \__ \ ||  __/ | | | | |
  |____/|_| \_|____/   |____/ \__, |___/\__\___|_| |_| |_|
-                             |___/     3DS NUS Explorer
+                             |___/     Wii U NUS Explorer
     """)
 
 def sha256_hash(filename: str) -> str:
@@ -99,30 +99,34 @@ def save_json_report(title_id: str, entries: List[Dict[str, Any]], stats: Dict[s
         json.dump(data, f, indent=2)
     print(f"[+] Saved JSON to {filename}")
 
-def process_content(entry: Dict[str, Any], base_url: str, title_id: str, download_dir: str, force: bool) -> tuple:
+def process_content(entry: Dict[str, Any], base_url: str, title_id: str, download_dir: str, force: bool, nohash: bool) -> tuple:
     content_id = entry["content_id"]
     url = base_url + content_id
     filename = os.path.join(download_dir, f"{title_id}_{content_id}.app")
 
     if os.path.exists(filename) and not force:
-        if sha256_hash(filename) == entry["hash"]:
+        if not nohash:
+            if sha256_hash(filename) == entry["hash"]:
+                return (content_id, "skipped", filename)
+        else:
             return (content_id, "skipped", filename)
 
     success = download_file_with_progress(url, filename)
     if not success:
         return (content_id, "failed", filename)
 
-    actual_hash = sha256_hash(filename)
-    if actual_hash != entry["hash"]:
-        logging.error(f"Hash mismatch for {filename}. Expected {entry['hash']}, got {actual_hash}")
-        # Optional: Remove the file if hash fails
-        try:
-            os.remove(filename)
-            logging.info(f"Removed corrupted file {filename}")
-        except Exception as e:
-            logging.warning(f"Could not remove file {filename}: {e}")
-        return (content_id, "hash_fail", filename)
-
+    if not nohash:
+        actual_hash = sha256_hash(filename)
+        if actual_hash != entry["hash"]:
+            logging.error(f"Hash mismatch for {filename}. Expected {entry['hash']}, got {actual_hash}")
+            # Optional: Remove the file if hash fails
+            try:
+                os.remove(filename)
+                logging.info(f"Removed corrupted file {filename}")
+            except Exception as e:
+                logging.warning(f"Could not remove file {filename}: {e}")
+            return (content_id, "hash_fail", filename)
+    # If --nohash is set, don't check hash at all
     return (content_id, "ok", filename)
 
 def fetch_tmd(title_id: str) -> Optional[bytes]:
@@ -157,13 +161,14 @@ def fetch_title_db() -> Dict[str, str]:
 def main():
     print_banner()
 
-    parser = argparse.ArgumentParser(description="Explore and download 3DS title contents from Nintendo's NUS")
-    parser.add_argument("title_ids", nargs="+", help="One or more 3DS title IDs")
+    parser = argparse.ArgumentParser(description="Explore and download 3DS/Wii U title contents from Nintendo's NUS")
+    parser.add_argument("title_ids", nargs="+", help="One or more 3DS/Wii U title IDs")
     parser.add_argument("--download-dir", default="downloads", help="Directory to save downloaded contents")
     parser.add_argument("--force", action="store_true", help="Force re-download even if hash is valid")
     parser.add_argument("--verbose", action="store_true", help="Enable verbose logging")
     parser.add_argument("--quiet", action="store_true", help="Suppress non-error output")
     parser.add_argument("--json", action="store_true", help="Output result as JSON report")
+    parser.add_argument("--nohash", action="store_true", help="Disable hash checking")
 
     args = parser.parse_args()
 
@@ -199,7 +204,7 @@ def main():
             base_url = urljoin(BASE_NUS_URL, f"{title_id}/")
             with ThreadPoolExecutor(max_workers=4) as executor:
                 futures = [
-                    executor.submit(process_content, entry, base_url, title_id, args.download_dir, args.force)
+                    executor.submit(process_content, entry, base_url, title_id, args.download_dir, args.force, args.nohash)
                     for entry in entries
                 ]
 
