@@ -26,17 +26,20 @@ my main goal is to make tickets work so you can actually get a piece of software
 
 First make sure you have python 3 installed
 then run `pip install requests tqdm`
-Grab nus.py from the source code or release where ever I have put it
+Grab the release from the release page 
+and extract 
 
 # How to use
 
 Basic usage is this
-in CMD cd to where you put the file
+in CMD cd to where you put the extracted the release
 and then run 
 
-`python nus.py "insert title id"`
+`python CDN.py "insert title id"`
 
-to download the id of the game you want
+to download the id of the game you want.
+
+If you want to decrypt make sure you are on windows and you gave a valid ticket
 
 Flags
 
@@ -66,15 +69,24 @@ it will copy the content into a a folder /downloads/"title id" this wont work if
 
 this will work with any .tik you can used backed up tik files or ones off the internet I can not direct them to you though
 
-# What it does
+# Credits
 
-Connects to nintendos NUS server
+Someone on gbatemp https://gbatemp.net/threads/release-cdecrypt-v3-0.554220/
+for the decryption exe I cant give the full name as gbatemp is down for me at the mo
 
-tries to fetch specified titles .tmd file
+# How to dump tickets from you own WiiU
 
-Parses the .tmd to get the content file list 
+YOU WILL NEED A HOMEBREWED WIIU
 
-Downloads all .app files
+Btw yes I know tiramisu is legacy but the ticket dumper is only on legacy enviroment  
 
-Verifies file intergrity with SHA256 (I hope this works)
-Output stats and optionally json report 
+First grab tiramisu from https://tiramisu.foryour.cafe/
+
+Take the Wiiu folder and dump it into the root of your SDcard
+After that turn your wiiu and hold select this will open the envrioment loader I think 
+Then open mii maker this will open the homebrew channel  if you have the homebrew app store open it  and search for ticket2sd install it 
+go back to to the homebrew channel aka miimaker and launch ticket2sd follow its instructions
+now thats done stick your sdcard into your computer go to to the sdcard and find a folder called ticket2sd
+that will have subfolders and will have your tickets your welcome :)
+
+
