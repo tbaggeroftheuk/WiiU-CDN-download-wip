@@ -1,5 +1,4 @@
 # WiiU-CDN-download-wip
-![](https://komarev.com/ghpvc/?username=tbaggeroftheuk
 
 # DISCLAMER
 
