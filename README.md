@@ -39,7 +39,8 @@ and then run
 
 to download the id of the game you want.
 
-If you want to decrypt make sure you are on windows and you gave a valid ticket
+If you want to decrypt make sure you are on windows you gave a valid ticket
+and you wil need to put a wiiu common key into the keys.txt a google search for WiiU common key will get you one 
 
 Flags
 
