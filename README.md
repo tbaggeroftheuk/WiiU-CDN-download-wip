@@ -42,7 +42,7 @@ and then if on linux run
 
 or on windows
 
-`cdn.exe "title id"1` 
+`cdn.exe "title id"` 
 
 to download the id of the game you want.
 
