@@ -21,25 +21,35 @@ game names also doesnt work
 havent tested much else if anyone wants to contribute feel free.
 A quick note nus.py is legacy  
 
-# Installation
+# Installation Linux 
 
 First make sure you have python 3 installed
 then run `pip install requests tqdm`
 Grab the release from the release page 
 and extract 
 
+# Installation Windows 
+
+Grab the release from the release page 
+and extract to anywhere you like 
+
 # How to use
 
 Basic usage is this
-in CMD cd to where you put the extracted the release
-and then run 
+in CMD or terminal cd to where you put the extracted the release
+and then if on linux run 
 
 `python CDN.py "insert title id"`
+
+or on windows
+
+`cdn.exe "title id"1` 
 
 to download the id of the game you want.
 
 If you want to decrypt make sure you are on windows you gave a valid ticket
 and you wil need to put a wiiu common key into the keys.txt a google search for WiiU common key will get you one 
+btw decrypting is Windows only dcn.py was only included in Linux as someone might know how to make Cdecrypt with wine work with it 
 
 Flags
 
