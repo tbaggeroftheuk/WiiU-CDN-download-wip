@@ -16,8 +16,7 @@ If you are a rights holder and have concerns, please contact me or file a takedo
 Also you will see in previous versions of nus.py that this was orginally 3ds
 And then I found out the 3ds cdn was bassicly unplugged so this is now Wii U 
 This is my work in progress nus downloader
-some stuff doesnt work downloading eg the system settings app from my inital test did not work
-game names also doesnt work
+game name dont work
 havent tested much else if anyone wants to contribute feel free.
 A quick note nus.py is legacy  
 
