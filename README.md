@@ -19,6 +19,8 @@ This is my work in progress nus downloader
 game name dont work
 havent tested much else if anyone wants to contribute feel free.
 A quick note nus.py is legacy  
+also made a C# version its in C# stuff a premade executable will be in releases
+
 
 # Installation Linux 
 
