@@ -23,6 +23,8 @@ also made a C# version its in C# stuff a premade executable will be in releases
 
 # quick heads up windows users
 
+If you dont want to use my exe files got the linux release download python for windows and follow linux installation
+
 if you are on windows and decided to use my exe files it might show something like 
 windows smartscreen "Windows protected your PC" thats normal its because my exe files have short names,
 dont have a background in microsofts backend of win defender and it was made with pyinstaller if you get the non C# version
