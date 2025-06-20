@@ -16,11 +16,19 @@ If you are a rights holder and have concerns, please contact me or file a takedo
 Also you will see in previous versions of nus.py that this was orginally 3ds
 And then I found out the 3ds cdn was bassicly unplugged so this is now Wii U 
 This is my work in progress nus downloader
-game name dont work
+game names dont work
 havent tested much else if anyone wants to contribute feel free.
 A quick note nus.py is legacy  
 also made a C# version its in C# stuff a premade executable will be in releases
 
+# quick heads up windows users
+
+if you are on windows and decided to use my exe files it might show something like 
+windows smartscreen "Windows protected your PC" thats normal its because my exe files have short names,
+dont have a background in microsofts backend of win defender and it was made with pyinstaller if you get the non C# version
+the C# was made with the `csc` command if you can please report to microsoft https://www.microsoft.com/en-us/wdsi/filesubmission
+I probably should a named the exe files something not so sus but my name convetion was cdn "content deliverey network"
+and dcn for "decrypt now"
 
 # Installation Linux 
 
