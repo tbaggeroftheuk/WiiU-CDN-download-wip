@@ -37,7 +37,10 @@ and dcn for "decrypt now"
 First make sure you have python 3 installed
 then run `pip install requests tqdm`
 Grab the release from the release page 
-and extract 
+and extract. 
+Or use 
+
+`git clone https://github.com/tbaggeroftheuk/WiiU-CDN-download-wip` 
 
 # Installation Windows 
 
@@ -60,7 +63,7 @@ to download the id of the game you want.
 
 If you want to decrypt make sure you are on windows you gave a valid ticket
 and you wil need to put a wiiu common key into the keys.txt a google search for WiiU common key will get you one 
-btw decrypting is Windows only dcn.py was only included in Linux as someone might know how to make Cdecrypt with wine work with it 
+Decryption is now on Linux and windows I found out that renaming the exe to just CDecrypt makes it work in Linux XD 
 
 Flags
 
