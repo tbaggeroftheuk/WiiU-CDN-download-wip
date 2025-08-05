@@ -315,18 +315,15 @@ def main():
         except Exception as e:
             logging.error(f"Error processing {title_id}: {e}")
 
-    # After all titles processed, handle decryption prompt
+    # I removed the windows only one as I found out can just rename CDecrypt.exe to CDecrypt with no exe XD
     if ticket_found:
-        if platform.system().lower() == "windows":
-            run_decrypt = input("A valid ticket was found. Do you want to decrypt the game? (y/n): ").strip().lower()
-            if run_decrypt == "y":
-                print("Running dcn.py to decrypt the game...")
-                try:
-                    subprocess.run(["python", "dcn.py"], check=True)
-                except Exception as e:
-                    print(f"Failed to run dcn.py: {e}")
-        else:
-            print("Decryption is only supported on Windows. Skipping decryption step.")
+        run_decrypt = input("A valid ticket was found. Do you want to decrypt the game? (y/n): ").strip().lower()
+        if run_decrypt == "y":
+            print("Running dcn.py to decrypt the game...")
+            try:
+                subprocess.run(["python", "DCN.py"], check=True)
+            except Exception as e:
+                print(f"Failed to run dcn.py: {e}")
     else:
         print("No valid ticket was found. Skipping decryption step.")
 
