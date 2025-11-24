@@ -77,7 +77,7 @@ Flags
 
 `--json` saves a .json report of downloaded files idk if this works
 
-`--nohash` disables hash check 
+`--nohash` disables hash check (use this every time as I have issues checking the hash ) 
 
 `--h3 downloads` the h3 hash checking files idk why I added this or if it works 
 
